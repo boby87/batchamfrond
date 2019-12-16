@@ -9,6 +9,7 @@ import {Adresse} from "./Adresse";
 export class AcceuilService {
 
   public personne:Personne[]=[];
+  public is_charger:boolean=false;
   constructor(public httpclient:HttpClient){}
 
   getAllPersonne(page:number,size:number){

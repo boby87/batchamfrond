@@ -20,24 +20,38 @@ export class AcceuilComponent implements OnInit {
   }
 
   getAllPersonne(page:number,size:number){
+    this.acceuilservice.is_charger=true;
     this.acceuilservice.getAllPersonne(page, size).subscribe(
       data=>{
 
         this.totalpages=data["totalPages"];
         this.page=new Array<number>(this.totalpages);
         this.acceuilservice.personne=data["content"];
+      },
+      ()=>{
+        this.acceuilservice.is_charger=false;
+      },
+      ()=>{
+        this.acceuilservice.is_charger=false;
       }
     )
   }
 
   onRecherche(mc:any){
+    this.acceuilservice.is_charger=true;
     this.acceuilservice.getByPersonne(mc.nompersonne,this.currentpage, this.size).subscribe(
       data=>{
 
         this.totalpages=data["totalPages"];
         this.page=new Array<number>(this.totalpages);
         this.acceuilservice.personne=data["content"];
-      }
+      },
+      ()=>{
+        this.acceuilservice.is_charger=false;
+      },
+    ()=>{
+      this.acceuilservice.is_charger=false;
+    }
     )
   }
 

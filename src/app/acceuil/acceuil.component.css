@@ -1,0 +1,7 @@
+.clickcur{
+  cursor: pointer;
+}
+ input{
+   border-radius: 0.5em;
+   padding: 5px;
+ }

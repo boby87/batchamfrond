@@ -8,8 +8,10 @@ import {Adresse} from "./Adresse";
 })
 export class AcceuilService {
 
+  public person:Personne=new Personne();
   public personne:Personne[]=[];
   public is_charger:boolean=false;
+  public isLogin:boolean;
   constructor(public httpclient:HttpClient){}
 
   getAllPersonne(page:number,size:number){
@@ -20,6 +22,9 @@ export class AcceuilService {
   getByPersonne(mc:string,page:number,size:number){
 
     return this.httpclient.get<Personne[]>(Adresse.host+"/personne/"+mc+"?page="+page+"&size="+size);
+  }
+  connection(nom:string,password:string){
+    return this.httpclient.get<Personne>(Adresse.host+'/connection/'+nom+'/'+password);
   }
 
 }

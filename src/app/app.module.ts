@@ -8,17 +8,26 @@ import {AcceuilService} from "./Service/AcceuilService";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterModule, Routes} from "@angular/router";
 import {FormsModule} from "@angular/forms";
+import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from './header/header.component';
+import { MangerUserComponent } from './manger-user/manger-user.component';
 
 
 const routes: Routes =[
   { path: '' ,component: AcceuilComponent},
+  { path: 'acceuil' ,component: AcceuilComponent},
+  { path: 'login' ,component: LoginComponent},
+  { path: 'user' ,component: MangerUserComponent},
 
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    AcceuilComponent
+    AcceuilComponent,
+    LoginComponent,
+    HeaderComponent,
+    MangerUserComponent
   ],
   imports: [
     BrowserModule,

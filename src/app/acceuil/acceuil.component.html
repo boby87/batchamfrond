@@ -1,8 +1,7 @@
-<div class="container">
 
+<div class="container">
   <div class="card card-link">
-    <div class="card-header btn-primary">Panel Heading</div>
-    <div class="card-body">
+    <app-header></app-header>
       <div class="card-body text-center">
         <form #f="ngForm" (ngSubmit)="onRecherche(f.value)" >
           <input  placeholder="Entez votre Nom"  name="nompersonne" ngModel>
@@ -10,9 +9,8 @@
         </form>
         <img *ngIf="acceuilservice.is_charger" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
       </div>
-    <div class="card-body ">
-      <table class="table table-bordered" *ngIf="acceuilservice.personne">
-        <thead>
+      <table class="table table-bordered table-hover" *ngIf="acceuilservice.personne">
+        <thead class="thead-light">
         <tr>
           <th scope="col">id</th>
           <th scope="col">Nom</th>
@@ -21,9 +19,9 @@
           <th scope="col">Residence</th>
         </tr>
         </thead>
-        <tbody>
-        <tr *ngFor="let p of acceuilservice.personne">
-          <th scope="row">{{p.idpersonne}}</th>
+        <tbody *ngFor="let p of acceuilservice.personne">
+        <tr>
+          <td scope="row">{{p.idpersonne}}</td>
           <td>{{p.nomprenom}}</td>
           <td>{{p.datenaissance}}</td>
           <td>{{p.contact}}</td>
@@ -36,7 +34,5 @@
           <a (click)="onpagepersonne(i)">{{i}}</a>
         </li>
       </ul>
-    </div>
   </div>
-</div>
 </div>
